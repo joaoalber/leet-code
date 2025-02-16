@@ -1,0 +1,34 @@
+# Definition for a binary tree node.
+# class TreeNode
+#     attr_accessor :val, :left, :right
+#     def initialize(val = 0, left = nil, right = nil)
+#         @val = val
+#         @left = left
+#         @right = right
+#     end
+# end
+# @param {TreeNode} root
+# @return {Float[]}
+def average_of_levels(root)
+  return [] unless root
+  
+  queue = Queue.new
+  queue << [root, 0]
+
+  levels = Hash.new { |h, k| h[k] = [] } # space complexity O(n)
+
+  # O(n)
+  while !queue.empty?
+    node, level = queue.pop
+    levels[level] << node.val
+
+    queue << [node.left, level + 1] if node.left
+    queue << [node.right, level + 1] if node.right
+  end
+
+  # O(n)
+  levels.map { |_node, values| values.sum / values.size.to_f }
+end
+
+# time complexity O(n)
+# space complexity O(n)
