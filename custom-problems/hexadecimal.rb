@@ -5,6 +5,7 @@ def convert_rgb_to_hex(r, g, b)
 
   return "invalid arguments" if r + g + b > 765
  
+  # O(1)
   result << HEX_TABLE[r / 16]
   result << HEX_TABLE[r % 16]
   result << HEX_TABLE[g / 16]

@@ -12,6 +12,7 @@ class ListNode
   end
 end
 
+# O(n)
 def reverse_linked_list(node, previous = nil)
   return if node.nil?
 

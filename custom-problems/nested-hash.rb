@@ -34,6 +34,7 @@ brands = {
   }
 }
 
+# O(n)
 def count_nested_hash(hash, counter)  
   hash.each do |k, v|
     if v.is_a?(Hash)
